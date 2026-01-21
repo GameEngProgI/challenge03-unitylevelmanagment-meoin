@@ -10,11 +10,12 @@ public class LevelManager : MonoBehaviour
         player = ServiceHub.Instance.playerController.gameObject;
     }
 
-    public void LevelChange(GameObject targetLevel, Vector2 targetPosition) 
+    public void LevelChange(GameObject targetLevel, Transform targetPosition) 
     {
+        player.transform.position = targetPosition.position;
         current.SetActive(false);
         targetLevel.SetActive(true);
         current = targetLevel;
-        player.transform.position = targetPosition;
+        
     }
 }
